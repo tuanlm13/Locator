@@ -2,20 +2,14 @@ package PageObject;
 
 import KeyWord.WebUI;
 import org.openqa.selenium.By;
-import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-
-import java.time.Duration;
 
 import static KeyWord.WebUI.*;
 import static KeyWord.WebUI.openURL;
 
-public class LoginPage {
-    private String URL = "https://crm.anhtester.com/admin/authentication";
+public class PageLogin {
+    private String URL = "https://cms.anhtester.com/login";
     private String PAGETEXT = "Login";
 
     //Lưu Object của trang Login
@@ -31,7 +25,7 @@ public class LoginPage {
     //Hàm xây dựng để truyền vào driver
     private WebDriver driver;
 
-    public LoginPage(WebDriver _driver){
+    public PageLogin(WebDriver _driver){
         driver = _driver;
         new WebUI(driver);
     }

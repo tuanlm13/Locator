@@ -1,22 +1,22 @@
 package TestCase;
 
-import PageObject.LoginPage;
+import PageObject.PageLogin;
 import common.BaseTest;
 import org.testng.annotations.Test;
 
 public class TCLogin extends BaseTest {
-    LoginPage loginPage;
+    PageLogin pageLogin;
     @Test
     public void loginSuccess(){
-        loginPage = new LoginPage(driver);
+        pageLogin = new PageLogin(driver);
 
         //Gọi hàm "login" từ LoginPage để dùng
-        loginPage.loginSuccess("admin@example.com","123456");
+        pageLogin.loginSuccess("admin@example.com","123456");
     }
 
     @Test
     public void loginTestInvalidEmail() {
-        loginPage = new LoginPage(driver);
-        loginPage.loginInvalidEmail("admin@example.com123", "123456");
+        pageLogin = new PageLogin(driver);
+        pageLogin.loginInvalidEmail("admin@example.com123", "123456");
     }
 }
