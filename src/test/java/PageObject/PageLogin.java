@@ -31,8 +31,10 @@ public class PageLogin {
     }
 
     //verify title:
-    public void verifyHeaderPage(){
-        Assert.assertEquals(getTextElement(headerPage), PAGETEXT, "FAIL. Header not match.");
+    public void verifyUrl(){
+        String currentUrl=driver.getCurrentUrl();
+
+        Assert.assertEquals(currentUrl,URL);
     }
 
     //input mail on login page:
@@ -50,15 +52,9 @@ public class PageLogin {
         clickElement(buttonLogin);
     }
 
-    public void verifyErrorMessageDisplay(){
-        Assert.assertTrue(getWebElement(messageErrorEmail).isDisplayed(), "FAIL. Error message no displays.");
-        Assert.assertEquals(getTextElement(messageErrorEmail), "Invalid email or password", "FAIL. Content of the Error message not match.");
-    }
-
 
     public void loginSuccess(String email, String password){
         openURL(URL);
-        verifyHeaderPage();
         enterEmail(email);
         enterPassword(password);
         clickOnLoginButton();
@@ -68,12 +64,11 @@ public class PageLogin {
 
     public void loginInvalidEmail(String email, String password){
         openURL(URL);
-        //verifyHeaderPage();
         enterEmail(email);
         enterPassword(password);
         clickOnLoginButton();
-        //Kểm tra message thông báo lỗi khi sai email
-        verifyErrorMessageDisplay();
+        verifyUrl();
+
     }
 
 

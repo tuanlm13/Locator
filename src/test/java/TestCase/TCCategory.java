@@ -3,6 +3,7 @@ package TestCase;
 import PageObject.PageLogin;
 import common.BaseTest;
 import PageObject.PageAddCategories;
+import org.openqa.selenium.By;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -26,9 +27,15 @@ public class TCCategory extends BaseTest {
         category.clickAddCategory();
         Thread.sleep(3000);
         category.inputCategory();
-
         //search category:
         category.searchCategory();
+
+    }
+    @Test
+    public void removeCategory() throws InterruptedException {
+        category = new PageAddCategories(driver);
+        category.moveCategory();
+        category.removeCategory();
 
     }
 

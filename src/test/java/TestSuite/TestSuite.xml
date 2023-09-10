@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="TesSuite">
+
+    <!-- Test for TCLogin -->
+    <test name="TCLoginTest">
+        <classes>
+            <class name="TestCase.TCLogin" /> <!-- Thay thế bằng đường dẫn đầy đủ đến class TCLogin của bạn -->
+        </classes>
+    </test>
+
+    <!-- Test for AddCategory -->
+    <test name="AddCategoryTest">
+        <classes>
+            <class name="TestCase.TCCategory" /> <!-- Thay thế bằng đường dẫn đầy đủ đến class AddCategory của bạn -->
+        </classes>
+    </test>
+
+</suite> <!-- AllTestsSuite -->
