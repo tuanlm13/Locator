@@ -37,6 +37,9 @@ public class WebUI {
         logConsole("Open URL: " + URL);
     }
 
+    public  static void reload(){
+        driver.navigate().refresh();
+    }
     /**
      * Wait for Page loaded
      * Chờ đợi trang tải xong (Javascript tải xong)
