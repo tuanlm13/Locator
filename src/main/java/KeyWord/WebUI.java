@@ -85,6 +85,13 @@ public class WebUI {
         logConsole("SetText done");
     }
 
+    public static void clearText(By by){
+        waitForPageLoaded();
+        logConsole("Clear Text__into textbox__"+ by);
+        getWebElement(by).clear();
+        logConsole("SetText done");
+    }
+
     //Click on WebElement:
     public static void clickElement(By by) {
         waitForPageLoaded();
