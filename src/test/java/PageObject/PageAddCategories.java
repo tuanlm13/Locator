@@ -38,7 +38,7 @@ public class PageAddCategories {
     By buttonSave = By.xpath("//button[@type='submit']");
 
     private String URL = "https://cms.anhtester.com/login";
-    private String categoryName = "Category 20230909";
+    public String categoryName = "Category 20230909";
     By inputEmail = By.xpath("//input[@id='email']");
     By inputPassword = By.xpath("//input[@id='password']");
     By buttonLogin = By.xpath("//button[@type='submit']");
@@ -138,12 +138,12 @@ public class PageAddCategories {
     By tbx_search = By.xpath("//input[@id='search']");
     By list_category_name = By.xpath("//tbody/tr[1]/td[2]");
 
-    public void searchCategory() throws InterruptedException {
-        setText(tbx_search, categoryName);
+    public void searchCategory(String keyword) throws InterruptedException {
+        setText(tbx_search, keyword);
         driver.findElement(By.xpath("//input[@id='search']")).sendKeys(Keys.ENTER);
         Thread.sleep(3000);
         String actualName = driver.findElement(list_category_name).getText();
-        Assert.assertEquals(actualName, categoryName);
+        Assert.assertEquals(actualName, keyword);
 
     }
 
@@ -163,19 +163,19 @@ public class PageAddCategories {
     }
 
     public void removeCategory() throws InterruptedException {
-        searchCategory();
+        searchCategory(categoryUpdate);
         while (true) {
-            try{
+            try {
                 if (isElementPresent(btn_delete)) {
                     clickElement(btn_delete);
                     Thread.sleep(2000);
                     clickElement(btn_confirmDelete);
-                    searchCategory();
+                    searchCategory(categoryUpdate);
 
                 } else {
                     break;
                 }
-            }catch(NoSuchElementException e){
+            } catch (NoSuchElementException e) {
                 System.out.println("Element not found: " + e.getMessage());
                 break;
             }
@@ -183,6 +183,37 @@ public class PageAddCategories {
         }
         Assert.assertFalse(isElementPresent(btn_delete));
         //String actualName=driver.findElement(list_category_name).getText();
+
+    }
+
+    By btn_Edit = By.xpath("//a[@title='Edit']");
+    String categoryUpdate = categoryName + " Category update";
+
+    public void editCategory() throws InterruptedException {
+        searchCategory(categoryName);
+
+        try {
+            if (isElementPresent(btn_Edit)) {
+                clickElement(btn_Edit);
+                Thread.sleep(2000);
+                clearText(name);
+                Thread.sleep(2000);
+                setText(name, categoryUpdate);
+                clickElement(buttonSave);
+                clickElement(menuCategory);
+                Thread.sleep(2000);
+                searchCategory(categoryUpdate);
+
+            } else {
+                System.out.println("Element not found: ");
+            }
+        } catch (NoSuchElementException e) {
+            System.out.println("Element not found: " + e.getMessage());
+
+        }
+        Thread.sleep(2000);
+        String actualName = driver.findElement(list_category_name).getText();
+        Assert.assertEquals(actualName, categoryUpdate);
 
     }
 

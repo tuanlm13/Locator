@@ -37,6 +37,9 @@ public class WebUI {
         logConsole("Open URL: " + URL);
     }
 
+    public  static void reload(){
+        driver.navigate().refresh();
+    }
     /**
      * Wait for Page loaded
      * Chờ đợi trang tải xong (Javascript tải xong)
@@ -82,6 +85,13 @@ public class WebUI {
         waitForPageLoaded();
         logConsole("SetText__"+text+"__into textbox__"+ by);
         getWebElement(by).sendKeys(text);
+        logConsole("SetText done");
+    }
+
+    public static void clearText(By by){
+        waitForPageLoaded();
+        logConsole("Clear Text__into textbox__"+ by);
+        getWebElement(by).clear();
         logConsole("SetText done");
     }
 
