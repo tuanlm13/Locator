@@ -38,7 +38,7 @@ public class PageAddProduct {
     By price = By.xpath("//input[@name='unit_price']");
     By discount = By.xpath("//input[@name='discount']");
     By quantity = By.xpath("//input[@name='current_stock']");
-    By submit = By.xpath("//button[@value='publish']");
+    By submit = By.xpath("//button[@value='unpublish']");
 
     public int colortNumber=0;
     public void moveProduct(){
@@ -106,14 +106,31 @@ public class PageAddProduct {
     }
 ////button[@value='publish']
     public void submit() throws InterruptedException {
+
+        Thread.sleep(5000);
         clickElement(submit);
-        Thread.sleep(5);
+        Thread.sleep(2000);
     }
 
     By messageSuccess=By.xpath("//span[@data-notify='message']");
     public void verifyMessage(){
         verifyElementVisible(messageSuccess,8);
     }
+
+    By banner = By.xpath("//*[@id=\"choice_form\"]/div/div[1]/div[2]/div[2]/div[2]/div/div[1]/div[2]");
+    By image = By.xpath("//h6/span[contains(text(),'play')]");
+    By addFile = By.xpath("//button[contains(text(),'Add Files')]");
+
+    public void selectImage() throws InterruptedException {
+        clickElement(banner);
+        Thread.sleep(2000);
+        clickElement(image);
+        Thread.sleep(1000);
+        clickElement(addFile);
+        Thread.sleep(2000);
+    }
+
+
 
 }
 

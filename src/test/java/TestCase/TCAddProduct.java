@@ -27,6 +27,8 @@ public class TCAddProduct extends BaseTest {
         product.inputCategory();
         product.inputUnit();
         product.inputTag();
+
+        product.selectImage();
         product.inputColor();
         product.inputPrice();
         product.inputDiscount();
