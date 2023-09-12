@@ -17,4 +17,10 @@
         </classes>
     </test>
 
+    <test name="AddProductTest">
+        <classes>
+            <class name="TestCase.TCAddProduct" /> <!-- Thay thế bằng đường dẫn đầy đủ đến class AddCategory của bạn -->
+        </classes>
+    </test>
+
 </suite> <!-- AllTestsSuite -->

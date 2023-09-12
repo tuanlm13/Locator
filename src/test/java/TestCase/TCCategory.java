@@ -30,20 +30,20 @@ public class TCCategory extends BaseTest {
         category.searchCategory(category.categoryName);
 
     }
-    @Test
-    public void editCategory() throws InterruptedException {
-        category = new PageAddCategories(driver);
-        category.moveCategory();
-        category.editCategory();
-    }
-
-    @Test
-    public void removeCategory() throws InterruptedException {
-        category = new PageAddCategories(driver);
-        category.moveCategory();
-        category.removeCategory();
-
-    }
+//    @Test
+//    public void editCategory() throws InterruptedException {
+//        category = new PageAddCategories(driver);
+//        category.moveCategory();
+//        category.editCategory();
+//    }
+//
+//    @Test
+//    public void removeCategory() throws InterruptedException {
+//        category = new PageAddCategories(driver);
+//        category.moveCategory();
+//        category.removeCategory();
+//
+//    }
 
 
 

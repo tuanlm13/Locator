@@ -38,7 +38,7 @@ public class PageAddCategories {
     By buttonSave = By.xpath("//button[@type='submit']");
 
     private String URL = "https://cms.anhtester.com/login";
-    public String categoryName = "Category 20230909";
+    public String categoryName = "Category 20230912";
     By inputEmail = By.xpath("//input[@id='email']");
     By inputPassword = By.xpath("//input[@id='password']");
     By buttonLogin = By.xpath("//button[@type='submit']");
